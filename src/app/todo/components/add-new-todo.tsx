@@ -1,12 +1,10 @@
 'use client'
-
 import { FormEvent, useState } from "react";
 
 export default function AddNewTodo() {
   const [newTodo, setNewTodo] = useState("");
 
   const addNewTodo = (e: FormEvent<HTMLFormElement>) => {
-    debugger
     e.preventDefault();
     setNewTodo("");
   };

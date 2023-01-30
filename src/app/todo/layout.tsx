@@ -1,5 +1,6 @@
 import React from "react";
-import AddNewTodo from './add-new-todo';
+import AddNewTodo from './components/add-new-todo';
+import TodoList from "./components/todo-list";
 
 export default function RootLayout(
   { children }: { children: React.ReactNode }
@@ -10,9 +11,10 @@ export default function RootLayout(
         <h2>NeXt <br /> <b>Todo</b> <br /> </h2>
       </div>
 
-      <div className="flex-1 pl-5">
+      <div className="flex-1 pl-3">
         <AddNewTodo />
         <div>{children}</div>
+        <TodoList />
       </div>
     </main>
   )
