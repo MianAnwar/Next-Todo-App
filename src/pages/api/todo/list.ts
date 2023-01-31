@@ -7,22 +7,12 @@ type Todo = {
   isDone: boolean;
 }
 
-var todos: Todo[] = [
+let todos: Todo[] = [
   {
     id: uuidv4(),
-    name: "Learn Next.js",
+    name: "Next.js projects",
     isDone: false,
-  },
-  {
-    id: uuidv4(),
-    name: "Learn API Development",
-    isDone: false,
-  },
-  {
-    id: uuidv4(),
-    name: "New Start up",
-    isDone: false,
-  },
+  }
 ];
 
 export const addTodo = (name: string) => {

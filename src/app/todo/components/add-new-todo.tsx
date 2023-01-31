@@ -1,8 +1,18 @@
 'use client'
+import { useRouter } from "next/navigation";
 import { FormEvent, useState } from "react";
+
+async function addTodo(name: string, refresh: () => void) {
+  let result = await fetch(`/api/todo/add`, {
+    method: "POST",
+    body: JSON.stringify({ name })
+  });
+  refresh();
+}
 
 export default function AddNewTodo() {
   const [newTodo, setNewTodo] = useState("");
+  const router = useRouter();
 
   const addNewTodo = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -21,7 +31,7 @@ export default function AddNewTodo() {
             shadow-sm sm:text-sm"
         placeholder="Type NEW Todo"
       />
-      <button className="ml-1 rounded px-2 bg-yellow-500">Add</button>
+      <button onClick={() => addTodo(newTodo, router.refresh)} className="ml-1 rounded px-2 bg-yellow-500">Add</button>
     </form>
   );
 }

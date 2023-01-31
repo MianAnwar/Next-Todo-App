@@ -2,7 +2,11 @@ import { TodoModel } from '../todo-model';
 import Todo from './todo';
 
 const getTodos = async () => {
-  let todos = await fetch('http://localhost:3000/api/todo/list');
+  let todos = await fetch(`http://localhost:3000/api/todo/list`,
+    {
+      method: "GET",
+      mode: "no-cors"
+    });
   const data = await todos.json();
   return data.todos as TodoModel[];
 }
