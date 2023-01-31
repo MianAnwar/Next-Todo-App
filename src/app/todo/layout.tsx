@@ -14,6 +14,7 @@ export default function RootLayout(
       <div className="flex-1 pl-3">
         <AddNewTodo />
         <div>{children}</div>
+        {/* @ts-ignore */}
         <TodoList />
       </div>
     </main>
