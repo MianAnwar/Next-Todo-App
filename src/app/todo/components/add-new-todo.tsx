@@ -3,6 +3,9 @@ import { useRouter } from "next/navigation";
 import { FormEvent, useState } from "react";
 
 async function addTodo(name: string, refresh: () => void) {
+  if (name == "") {
+    return;
+  }
   let result = await fetch(`/api/todo/add`, {
     method: "POST",
     body: JSON.stringify({ name })
